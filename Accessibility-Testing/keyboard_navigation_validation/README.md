@@ -34,22 +34,36 @@ The automation follows a structured workflow:
 
 ## Implementation Example
 
-One of the core components of this project is detecting potential keyboard traps by monitoring focus movement during keyboard navigation.
+The following function demonstrates how the automation validates keyboard navigation by tracking focus movement after each Tab key press. It flags possible accessibility issues when focus does not move or repeats unexpectedly.
 
 ```python
-def check_keyboard_trap(page):
-    focus_history = set()
+def check_tab_navigation(page: Page, limit=SAFE_LIMIT):
+    seen_keys = []
 
-    while True:
+    page.focus("body")
+
+    for attempt in range(limit):
+        before = page.evaluate(FOCUS_SIGNATURE)
+        before_key = focus_key(before)
+
         page.keyboard.press("Tab")
+        page.wait_for_timeout(100)
 
-        current_focus = get_focus_signature(page)
+        after = page.evaluate(FOCUS_SIGNATURE)
+        after_key = focus_key(after)
 
-        if current_focus in focus_history:
-            raise AssertionError("Possible keyboard trap detected.")
+        if after_key == before_key:
+            raise Exception(
+                "Possible keyboard trap because focus did not move."
+            )
 
-        focus_history.add(current_focus)
-```
+        if after_key in seen_keys[-3:]:
+            raise Exception(
+                "Possible keyboard trap because focus repeated."
+            )
+
+        seen_keys.append(after_key)
+
 The complete implementation is available here:
 
 ➡️ [test_keyboard_navigation_validation.py](test_keyboard_navigation_validation.py)
