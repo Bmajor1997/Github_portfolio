@@ -13,7 +13,7 @@ from playwright.sync_api import Page, expect
 # =============================================================================
 # CONSTANTS
 # =============================================================================
-DOCS_URL = "https://test.scribeit.io/"
+DOCS_URL = "https://example.com"
 STORAGE_STATE_PATH = Path("storage_state.json")
 BASE_DIR = Path(__file__).resolve().parent
 TEST_DOCUMENTS_DIR = BASE_DIR / "test_documents" / "PDF"
@@ -352,7 +352,7 @@ def test_keyboard_navigation_accessibility(page: Page):
     check_shift_tab_navigation(page)
     check_keyboard_trap(page)
 
-    page.goto("https://test.scribeit.io/", wait_until="networkidle")
+    page.goto("https://example.com", wait_until="networkidle")
     wait_for_page_ready(page)
 
     upload_test_file(page, test_document)
