@@ -52,7 +52,7 @@ def check_keyboard_trap(page):
 ```
 The complete implementation is available here:
 
-➡️ [keyboard_navigation_validation.py](test_keyboard_navigation_validation.py)
+➡️ [test_keyboard_navigation_validation.py](test_keyboard_navigation_validation.py)
 
 ## Technologies Used
 
