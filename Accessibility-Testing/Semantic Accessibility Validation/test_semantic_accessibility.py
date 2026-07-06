@@ -24,12 +24,12 @@ from playwright.sync_api import Page
 # ==========================================================
 # CONSTANTS
 # ==========================================================
-SCRIBE_URL = "https://test.scribeit.io/"
+example_url = "https://test.example.io/"
 
-BASE_DIR = Path(__file__).resolve().parent
-STATE = BASE_DIR / "storage_state.json"
+base_dir = Path(__file__).resolve().parent
+state = base_dir / "storage_state.json"
 
-GRAPHIC_LABEL_RULES = {
+graphic_label_rules = {
     "image-alt",
     "image-redundant-alt",
     "aria-required-attr",
@@ -37,7 +37,7 @@ GRAPHIC_LABEL_RULES = {
     "aria-labelledby",
 }
 
-GENERIC_ERROR_PATTERNS = [
+generic_error_patterns = [
     "error",
     "invalid",
     "something went wrong",
@@ -65,7 +65,7 @@ def check_graphic_labels(page: Page) -> None:
     graphic_violations = [
         violation
         for violation in violations
-        if violation.get("id") in GRAPHIC_LABEL_RULES
+        if violation.get("id") in graphic_label_rules
     ]
 
     assert not graphic_violations, f"Graphic label violations found: {graphic_violations}"
@@ -144,7 +144,7 @@ def check_generic(text: str) -> bool:
 
     normalized_text = text.strip().lower()
 
-    for pattern in GENERIC_ERROR_PATTERNS:
+    for pattern in generic_error_patterns:
         if pattern in normalized_text:
             return True
 
@@ -190,9 +190,9 @@ def check_error_messages(page: Page) -> None:
 # ==========================================================
 # TEST FUNCTION
 # ==========================================================
-@pytest.mark.browser_context_args(storage_state=str(STATE))
+@pytest.mark.browser_context_args(storage_state=str(state))
 def test_semantic_accessibility(page: Page):
-    page.goto(SCRIBE_URL, wait_until="networkidle")
+    page.goto(example_url, wait_until="networkidle")
 
     check_axe_violations(page)
     check_graphic_labels(page)
