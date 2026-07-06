@@ -247,7 +247,7 @@ def check_tab_navigation(page: Page, limit=SAFE_LIMIT):
 
         seen_keys.append(after_key)
 
-    return
+    return seen_keys
 
 def check_shift_tab_navigation(page: Page, limit=SAFE_LIMIT):
 
@@ -277,38 +277,25 @@ def check_shift_tab_navigation(page: Page, limit=SAFE_LIMIT):
 
         seen_keys.append(after_key)
 
-    return
+    return seen_keys
 
 def check_keyboard_trap(page: Page, limit=KEYBOARD_TRAP_LIMIT):
 
-    seen_keys = []
+    tab_history = check_tab_navigation(page)
+    shift_tab_history = check_shift_tab_navigation(page)
 
-    page.focus("body")
+    combined_history = tab_history + shift_tab_history
 
-    for attempt in range(limit):
-        before = page.evaluate(FOCUS_SIGNATURE)
-        before_key = focus_key(before)
+    if len(combined_history) != len(set(combined_history)):
+        raise Exception(
+            "Possible keyboard trap because focus repeated during keyboard navigation."
+        )
 
-        page.keyboard.press("Shift+Tab")
-        page.wait_for_timeout(100)
-
-        after = page.evaluate(FOCUS_SIGNATURE)
-        after_key = focus_key(after)
-
-        if after_key == before_key:
-            raise Exception(
-                "Possible keyboard trap because focus did not move."
-            )
-
-        if after_key in seen_keys[-3:]:
-            raise Exception(
-                "Possible keyboard trap because focus repeated."
-            )
-
-        seen_keys.append(after_key)
-
-    return
-
+    return {
+        "tab_history": tab_history,
+        "shift_tab_history": shift_tab_history,
+    }
+    
 def check_dropdown_arrow_navigation(page: Page):
 
     page.keyboard.press("Home")
