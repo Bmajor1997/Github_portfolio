@@ -65,7 +65,7 @@ def check_tab_navigation(page: Page, limit=SAFE_LIMIT):
         seen_keys.append(after_key)
 
 The complete implementation is available here:
-
+```
 ➡️ [test_keyboard_navigation_validation.py](test_keyboard_navigation_validation.py)
 
 ## Technologies Used
