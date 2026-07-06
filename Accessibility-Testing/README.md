@@ -1,6 +1,70 @@
 # Overview
 
-This folder contains accessibility testing projects that demonstrate my approach to evaluating and improving the accessibility of web applications. Using Python, Playwright, screen readers, keyboard navigation, and semantic HTML validation, these projects showcase practical methods for identifying accessibility issues and supporting more inclusive user experiences.
+This section of the repository contains accessibility testing projects developed to evaluate the usability of web applications through automation and structured validation. These projects demonstrate practical experience using Python and Playwright to validate keyboard accessibility, screen reader compatibility, and semantic HTML while supporting software quality and inclusive user experiences.
 
-Each project emphasizes structured testing, professional documentation, and automation practices designed to improve software quality while aligning with modern accessibility standards.
+The projects in this section highlight my approach to accessibility testing by combining automation, structured documentation, and quality assurance best practices to identify and validate accessibility-related issues.
+
+---
+
+## Project Areas
+
+### ⌨️ Keyboard Navigation Validation
+
+Automates validation of keyboard navigation behavior by verifying focus movement, keyboard accessibility, and potential keyboard traps to support users who navigate without a mouse.
+
+---
+
+### 🖥️ Microsoft Narrator Compatibility
+
+Automates the setup process for accessibility testing with Microsoft Narrator, creating a consistent testing environment for validating screen reader interactions and keyboard accessibility.
+
+---
+
+### 🔊 NVDA Compatibility
+
+Supports accessibility validation using the NVDA screen reader by automating the setup process and preparing a consistent environment for evaluating screen reader behavior.
+
+---
+
+### 🏗️ Semantic Accessibility Validation
+
+Evaluates semantic HTML structure and accessibility-related markup to help identify issues that may impact compatibility with assistive technologies.
+
+---
+
+## Technologies
+
+- Python
+- Playwright
+- Microsoft Narrator
+- NVDA
+- Git
+- GitHub
+
+---
+
+## Testing Focus
+
+Projects in this section demonstrate experience with:
+
+- Keyboard Navigation
+- Screen Reader Validation
+- Semantic HTML Evaluation
+- Focus Management
+- Accessibility Automation
+- Accessibility Documentation
+- Software Quality Assurance
+
+---
+
+## Repository Organization
+
+Each accessibility project is organized to demonstrate:
+
+- Project Overview
+- Testing Objectives
+- Technologies Used
+- Automation Approach
+- Lessons Learned
+- Future Improvements
 
