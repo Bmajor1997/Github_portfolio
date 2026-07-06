@@ -65,7 +65,8 @@ def open_existing_example_page(playwright):
 
     raise Exception("No existing target application tab was found in the open Chrome window.")
 ```
-
+The complete implementation is available here:
+➡️ [`test_narrator_compatibility.py`](narrator_compatibility.py)
 ## Technologies Used
 
 - Python
