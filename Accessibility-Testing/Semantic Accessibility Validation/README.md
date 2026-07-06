@@ -32,7 +32,7 @@ The automation follows a structured validation workflow:
 
 The complete implementation of this project, including semantic structure checks, accessibility-related attribute validation, and Playwright-based inspection logic, is available in:
 
-➡️ [`semantic_accessibility_validation.py`](semantic_accessibility_validation.py)
+➡️ [`test_semantic_accessibility_validation.py`](test_semantic_accessibility_validation.py)
 
 ## Technologies Used
 
