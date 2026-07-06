@@ -55,16 +55,4 @@ Projects in this section demonstrate experience with:
 - Accessibility Documentation
 - Software Quality Assurance
 
----
-
-## Repository Organization
-
-Each accessibility project is organized to demonstrate:
-
-- Project Overview
-- Testing Objectives
-- Technologies Used
-- Automation Approach
-- Lessons Learned
-- Future Improvements
 
