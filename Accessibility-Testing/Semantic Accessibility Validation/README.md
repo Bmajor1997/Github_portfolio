@@ -76,7 +76,7 @@ def check_headings(page: Page) -> None:
 
 The complete implementation of this project, including semantic structure checks, accessibility-related attribute validation, and Playwright-based inspection logic, is available in:
 
-➡️ [`test_semantic_accessibility_validation.py`](test_semantic_accessibility_validation.py)
+➡️ [`test_semantic_accessibility.py`](test_semantic_accessibility.py)
 
 ## Technologies Used
 
