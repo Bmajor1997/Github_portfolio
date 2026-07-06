@@ -31,6 +31,41 @@ The automation follows a structured workflow:
 5. Establish a consistent starting point for accessibility validation.
 6. Complete setup for manual or automated accessibility testing.
 
+## Implementation Example
+
+The following function demonstrates how the script connects to an existing Chrome session through CDP, searches open browser tabs, and attaches to the target application for Narrator accessibility testing.
+
+```python
+def open_existing_example_page(playwright):
+    try:
+        browser = playwright.chromium.connect_over_cdp(CHROME_CDP_URL)
+    except Exception as error:
+        raise Exception(
+            "Could not connect to Chrome on port 9222. "
+            "Make sure Chrome is already running with --remote-debugging-port=9222."
+        ) from error
+
+    context_list = browser.contexts
+
+    if not context_list:
+        raise Exception("No existing Chrome context was found.")
+
+    chrome_context = context_list[0]
+
+    for page in chrome_context.pages:
+        try:
+            current_url = page.url.lower()
+
+            if "example.com" in current_url:
+                page.bring_to_front()
+                print(f"Attached to existing application tab: {page.url}")
+                return browser, chrome_context, page
+        except Exception:
+            continue
+
+    raise Exception("No existing target application tab was found in the open Chrome window.")
+```
+
 ## Technologies Used
 
 - Python
