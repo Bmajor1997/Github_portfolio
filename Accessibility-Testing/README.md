@@ -2,5 +2,7 @@
 
 This section of my repository contains projects focused on evaluating and improving the accessibility of web applications through automated testing.
 
-These projects demonstrate practical experience validating accessibility using screen readers, keyboard navigation, semantic HTML evaluation, and automated testing with Python and Playwright. The objective is to help ensure applications are usable by people with a wide range of abilities while supporting modern accessibility standards and best practices.
+This repository showcases accessibility testing projects focused on validating web application accessibility through both automated and assisted testing techniques. The projects demonstrate experience using screen readers, keyboard navigation, semantic HTML validation, and Python-based Playwright automation to identify and verify accessibility-related issues.
+
+Each project is organized to document the testing approach, implementation, lessons learned, and opportunities for future enhancement.
 
