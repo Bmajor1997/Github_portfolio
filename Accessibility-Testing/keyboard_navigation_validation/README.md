@@ -32,6 +32,28 @@ The automation follows a structured workflow:
 6. Detect potential keyboard accessibility issues.
 7. Report test results.
 
+## Implementation Example
+
+One of the core components of this project is detecting potential keyboard traps by monitoring focus movement during keyboard navigation.
+
+```python
+def check_keyboard_trap(page):
+    focus_history = set()
+
+    while True:
+        page.keyboard.press("Tab")
+
+        current_focus = get_focus_signature(page)
+
+        if current_focus in focus_history:
+            raise AssertionError("Possible keyboard trap detected.")
+
+        focus_history.add(current_focus)
+```
+The complete implementation is available here:
+
+➡️ [keyboard_navigation_validation.py](keyboard_navigation_validation.py)
+
 ## Technologies Used
 
 - Python
