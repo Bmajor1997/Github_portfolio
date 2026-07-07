@@ -6,7 +6,7 @@
 # DIRECTIONS
 # =============================================================================
 """
-Open ScribeIt, navigate to the appropriate page, retrieve the current credits count from the page content,
+Open Website, navigate to the appropriate page, retrieve the current credits count from the page content,
 and display the extracted value.
 """
 # =============================================================================
@@ -18,7 +18,7 @@ from pathlib import Path
 # =============================================================================
 # CONSTANTS
 # =============================================================================
-SCRIBE_URL = "https://test.scribeit.io/"
+EXAMPLE_URL = "https://Example.io/"
 CREDITS_SELECTOR = None  # set to a string selector when you have it
 BASE_DIR = Path(__file__).resolve().parent
 STATE = BASE_DIR / "storage_state.json"
@@ -56,7 +56,7 @@ def get_or_create_page(context):
     return context.pages[0] if context.pages else context.new_page()
 
 def read_credits(page) -> int | None:
-    page.goto(SCRIBE_URL, wait_until="networkidle")
+    page.goto(EXAMPLE_URL, wait_until="networkidle")
     page.wait_for_timeout(1500)  # small buffer for dynamic UI
 
     # If you have a known selector, use it first (most accurate)
@@ -79,6 +79,6 @@ def test_number_of_credits_verifier(page):
 
     credits = read_credits(page)
 
-    assert credits is not None, "Could not find credits count on the ScribeIt page."
+    assert credits is not None, "Could not find credits count on the website page."
 
     print(f"Current credits count: {credits}")
