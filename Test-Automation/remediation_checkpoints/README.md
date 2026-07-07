@@ -1,22 +1,3 @@
-Great. Let’s do Remediation Checkpoints next.
-
-This one is especially strong because it connects automation + accessibility review + processing validation.
-
-Create this folder
-
-Inside test-automation, create:
-
-remediation-checkpoints/
-
-Inside it:
-
-remediation-checkpoints/
-├── README.md
-├── remediation_checkpoints.py
-├── screenshots/
-└── documentation/
-README starter
-# Remediation Checkpoints
 
 ## Project Overview
 
