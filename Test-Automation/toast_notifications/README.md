@@ -26,18 +26,7 @@ I developed this automation to create a repeatable process for validating notifi
 
 ---
 
-## How It Works
 
-The automation follows a structured validation workflow:
-
-1. Launch the web application.
-2. Perform a user action that triggers a toast notification.
-3. Wait for the notification to appear.
-4. Validate the notification text.
-5. Confirm the notification is visible to the user.
-6. Continue the workflow after successful validation.
-
----
 
 ## Technologies Used
 
