@@ -49,12 +49,14 @@ for target_format in OUTPUT_FORMATS:
         failed.append(f"{file_name} -> {target_format}: {error}")
 
 assert not failed, f"Some conversions failed: {failed}"
-```
+
+```markdown
 ## Full Implementation
 
-The complete implementation of this project, including file selection, upload validation, and workflow progression checks, is available in:
+The complete implementation of this project, including document upload, processing validation, output format selection, conversion, download handling, and pass/fail result tracking, is available in:
 
-➡️ [`document_conversion_verification.py`](test_document_verification.py)  
+➡️ [`document_conversion_verification.py`](document_conversion_verification.py)
+
 ## Technologies Used
 
 - Python
