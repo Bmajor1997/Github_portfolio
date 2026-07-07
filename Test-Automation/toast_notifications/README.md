@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-Toast Notification Validation demonstrates an automated approach to verifying application feedback through transient toast notifications using Python and Playwright. The project validates that expected notification messages appear at the appropriate time during user workflows and accurately communicate the outcome of system actions.
+Toast Notification Validation demonstrates an automated approach to validating application workflow feedback through transient toast notifications using Python and Playwright. Rather than validating notifications in isolation, the project uses toast messages as checkpoints to verify that key stages of a document conversion workflow progress successfully.
 
-By automating toast notification validation, the project reduces repetitive manual verification while ensuring users receive timely and meaningful feedback throughout the application.
+By combining workflow automation with dynamic notification validation, the project creates a repeatable method for confirming application state changes and user feedback throughout the conversion process.
 
 ---
 
@@ -26,7 +26,44 @@ I developed this automation to create a repeatable process for validating notifi
 
 ---
 
+The following example demonstrates the core URL upload workflow, including entering the document URL, starting processing, validating the processing message, selecting the output format, and confirming the document is ready.
 
+```python
+def wait_for_first_toast(page, timeout_ms=10000):
+    """
+    Clicks Start and looks for the first processing toast notification.
+    """
+    try:
+        start_button = page.get_by_role("button", name="Start")
+        start_button.wait_for(timeout=timeout_ms)
+        start_button.click()
+    except Exception as error:
+        print(f"Start button not found on page {page.url}: {error}")
+        return False
+
+    page.wait_for_timeout(1500)
+
+    toast_patterns = [
+        re.compile(r"processing", re.I),
+        re.compile(r"uploading", re.I),
+        re.compile(r"starting", re.I),
+        re.compile(r"please wait", re.I),
+    ]
+
+    for pattern in toast_patterns:
+        try:
+            page.get_by_text(pattern, exact=False).first.wait_for(timeout=3000)
+            return True
+        except Exception:
+            continue
+
+    return False
+   ```
+ ## Full Implementation
+
+The complete implementation of this project, including toast notification detection, visibility validation, synchronization logic, and workflow verification, is available in:
+
+➡️ [`toast_notification_validation.py`](test_toast_notification.py)
 
 ## Technologies Used
 
@@ -53,9 +90,9 @@ I developed this automation to create a repeatable process for validating notifi
 
 ## Challenges and Lessons Learned
 
-Developing this project reinforced the importance of synchronization when validating dynamic user interface elements. Because toast notifications appear and disappear quickly, reliable waiting strategies and precise element validation were essential to producing stable and repeatable automation.
+Developing this project reinforced the importance of synchronizing automation with dynamic application behavior. Rather than relying on fixed messages, the automation was designed to recognize multiple valid notification patterns while continuing to verify workflow progression.
 
-The project also strengthened my understanding of validating user feedback as part of complete end-to-end workflows rather than treating notifications as isolated UI elements.
+The project also strengthened my understanding of building resilient automation that adapts to asynchronous user interface updates without sacrificing test reliability.
 
 ---
 
@@ -69,8 +106,4 @@ The project also strengthened my understanding of validating user feedback as pa
 
 ---
 
-## Full Implementation
 
-The complete implementation of this project, including toast notification detection, visibility validation, synchronization logic, and workflow verification, is available in:
-
-➡️ [`toast_notification_validation.py`](toast_notification_validation.py)
