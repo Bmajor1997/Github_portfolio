@@ -63,7 +63,7 @@ def get_test_files():
 
 def upload_document(page, file_path: Path):
     """
-    Uploads a document to scribeit.io.
+    Uploads a document to website.
     """
     file_input = page.locator("input[type='file']").first
     file_input.wait_for(timeout=5000)
@@ -125,7 +125,7 @@ def click_select_format(page, timeout_ms=40000):
     remediate_btn = page.get_by_role("button", name="Remediate Full Document")
 
     if remediate_btn.count() > 0 and remediate_btn.first.is_visible():
-        raise Exception("Scribe requires remediation; cannot proceed to Select Format.")
+        raise Exception("Website requires remediation; cannot proceed to Select Format.")
 
     try:
         select_button = page.get_by_role("button", name="Select Format")
