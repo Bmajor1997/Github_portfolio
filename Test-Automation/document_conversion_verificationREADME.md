@@ -1,4 +1,4 @@
-# Document Upload Verification
+# Document Conversion Verification
 
 ## Project Overview
 
@@ -8,7 +8,7 @@ This project supports quality assurance by creating a repeatable test for one of
 
 ## Why I Built This
 
-Document upload is a critical workflow because users must be able to submit files before any processing or conversion can occur. Manual upload testing can become repetitive, especially when validating multiple supported file types.
+Document Conversion is a critical workflow because users must be able to submit files before any processing or conversion can occur. Manual upload testing can become repetitive, especially when validating multiple supported file types.
 
 I built this automation to reduce repetitive manual validation, confirm upload behavior consistently, and support regression testing for a core application feature.
 
@@ -47,7 +47,7 @@ for target_format in OUTPUT_FORMATS:
 
 The complete implementation of this project, including document upload, processing validation, output format selection, conversion, download handling, and pass/fail result tracking, is available in:
 
-➡️ [`document_conversion_verification.py`](document_conversion_verification.py)
+➡️ [`document_conversion_verification.py`](test_document_conversion_verification.py)
 
 ## Technologies Used
 
