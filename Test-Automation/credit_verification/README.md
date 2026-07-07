@@ -1,9 +1,8 @@
-
 ## Project Overview
 
-Credit Verification demonstrates an automated approach to validating application credit usage during document processing workflows using Python and Playwright. The project verifies that user credits are tracked correctly before and after key actions, helping confirm that system behavior aligns with expected business rules.
+Credit Count Verification demonstrates an automated approach to extracting and validating the current credit balance displayed within a web application using Python and Playwright. The project reads the visible page content, identifies credit-related text patterns, and extracts the credit value for validation.
 
-This project supports quality assurance by creating a repeatable validation process for credit-based application functionality.
+This project supports quality assurance by creating a repeatable way to verify that credit information is visible, readable, and available for future business rule validation.
 
 ## Why I Built This
 
@@ -20,6 +19,12 @@ I built this automation to validate credit behavior consistently and support reg
 - Identify possible credit tracking issues.
 
 
+
+## Full Implementation
+
+The complete implementation of this project, including credit balance capture, document processing workflow validation, credit comparison, and result reporting, is available in:
+
+➡️ [`credit_verification.py`](credit_verification.py)
 
 ## Technologies Used
 
@@ -51,9 +56,3 @@ Developing this project reinforced the importance of validating business logic i
 - Add negative testing for insufficient credits.
 - Expand validation across additional credit-based workflows.
 - Integrate automated execution through GitHub Actions.
-
-## Full Implementation
-
-The complete implementation of this project, including credit balance capture, document processing workflow validation, credit comparison, and result reporting, is available in:
-
-➡️ [`credit_verification.py`](credit_verification.py)
