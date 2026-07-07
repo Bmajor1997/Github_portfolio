@@ -48,7 +48,7 @@ def extract_credits_best_effort(text: str) -> int | None:
 
 The complete implementation of this project, including credit balance capture, document processing workflow validation, credit comparison, and result reporting, is available in:
 
-➡️ [`credit_verification.py`](credit_verification.py)
+➡️ [`credit_verification`](test_credit_verification.py)
 
 ## Technologies Used
 
