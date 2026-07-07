@@ -18,8 +18,34 @@ I built this automation to validate credit behavior consistently and support reg
 - Compare expected and actual credit changes.
 - Identify possible credit tracking issues.
 
+## Implementation Example
 
+The following example demonstrates the core validation loop used to test document conversion across multiple output formats. 
+The automation uploads the source document, waits for format selection, selects a target format, converts the file, attempts to download the result, 
+and tracks passed or failed conversions.
 
+```python
+def extract_credits_best_effort(text: str) -> int | None:
+    """
+    Best-effort extraction:
+    1) Prefer patterns near the word 'credit(s)'
+    2) Fall back to a plausible standalone number (2-6 digits, allowing commas)
+    """
+    t = text or ""
+
+    m = re.search(r"\b(\d{1,6}(?:,\d{3})*)\s*credits?\b", t, re.I)
+    if not m:
+        m = re.search(r"\bcredits?\s*(\d{1,6}(?:,\d{3})*)\b", t, re.I)
+
+    if m:
+        return int(m.group(1).replace(",", ""))
+
+    m2 = re.search(r"\b\d{2,6}(?:,\d{3})*\b", t)
+    if m2:
+        return int(m2.group(0).replace(",", ""))
+
+    return None
+ ```   
 ## Full Implementation
 
 The complete implementation of this project, including credit balance capture, document processing workflow validation, credit comparison, and result reporting, is available in:
