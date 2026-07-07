@@ -20,9 +20,7 @@ I built this automation to validate credit behavior consistently and support reg
 
 ## Implementation Example
 
-The following example demonstrates the core validation loop used to test document conversion across multiple output formats. 
-The automation uploads the source document, waits for format selection, selects a target format, converts the file, attempts to download the result, 
-and tracks passed or failed conversions.
+The following example demonstrates the core credit extraction logic used to validate the application's displayed credit balance. The automation searches for credit-related text patterns, extracts the numeric value, and applies fallback matching to improve reliability across different page layouts.
 
 ```python
 def extract_credits_best_effort(text: str) -> int | None:
