@@ -1,19 +1,3 @@
-Great — next I’d do Credit Verification.
-
-It shows a different skill than the others: business rule validation.
-
-Create this folder:
-
-test-automation/
-└── credit-verification/
-    ├── README.md
-    ├── credit_verification.py
-    ├── screenshots/
-    └── documentation/
-
-Use this README starter:
-
-# Credit Verification
 
 ## Project Overview
 
