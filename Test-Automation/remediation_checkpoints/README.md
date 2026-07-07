@@ -63,7 +63,7 @@ result["headings"] = compare_documents(
 
 The complete implementation of this project, including remediation detection, checkpoint validation, warning identification, and workflow result reporting, is available in:
 
-➡️ [`remediation_checkpoints.py`](remediation_checkpoints.py)
+➡️ [`remediation_checkpoints`](test_remediation_accuracy_checkpoints.py)
 
 ## Technologies Used
 
