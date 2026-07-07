@@ -76,7 +76,7 @@ def validate_daisy_zip(zip_path, source_file):
 
 The complete implementation of this project, including DAISY format selection, conversion workflow validation, output verification, and result reporting, is available in:
 
-➡️ [`daisy_validation.py`](daisy_validation.py)
+➡️ [`daisy_validation`](test_daisy_validation.py)
 
 ## Technologies Used
 
