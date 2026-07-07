@@ -22,35 +22,27 @@ I built this automation to reduce repetitive manual validation, confirm upload b
 
 ## Implementation Example
 
-The following example demonstrates the core validation loop used to test document conversion across multiple output formats. The automation uploads the source document, waits for format selection, selects a target format, converts the file, attempts to download the result, and tracks passed or failed conversions.
+The following example demonstrates the core validation loop used to test document conversion across multiple output formats. 
+The automation uploads the source document, waits for format selection, selects a target format, converts the file, attempts to download the result, 
+and tracks passed or failed conversions.
 
 ```python
 for target_format in OUTPUT_FORMATS:
-    try:
-        if target_format == current_format:
-            print(f"Skipping {file_name} because it is already in {target_format}")
-            continue
+    if target_format == current_format:
+        continue
 
-        reset_to_home(page)
+    reset_to_home(page)
 
-        upload_document(page, file_path)
-        click_start_and_select_format(page, file_name)
-        wait_for_format_screen(page, file_name)
+    upload_document(page, file_path)
+    click_start_and_select_format(page, file_name)
+    wait_for_format_screen(page, file_name)
 
-        selecting_format(page, target_format, current_format)
-        click_convert(page)
-        click_download_if_present(page, file_name, target_format)
+    selecting_format(page, target_format, current_format)
+    click_convert(page)
+    click_download_if_present(page, file_name, target_format)
 
-        print(f"✅ {file_name} -> {target_format}")
-        passed.append(f"{file_name} -> {target_format}")
-
-    except Exception as error:
-        print(f"❌ {file_name} -> {target_format}: {error}")
-        failed.append(f"{file_name} -> {target_format}: {error}")
-
-assert not failed, f"Some conversions failed: {failed}"
+    passed.append(f"{file_name} -> {target_format}")
 ```
-
 ## Full Implementation
 
 The complete implementation of this project, including document upload, processing validation, output format selection, conversion, download handling, and pass/fail result tracking, is available in:
@@ -87,4 +79,3 @@ Developing this project reinforced the importance of validating core user workfl
 - Improve reusable upload helper functions.
 - Add reporting for upload validation results.
 - Integrate automated execution through GitHub Actions.
-
