@@ -47,7 +47,7 @@ for target_format in OUTPUT_FORMATS:
 
 The complete implementation of this project, including document upload, processing validation, output format selection, conversion, download handling, and pass/fail result tracking, is available in:
 
-➡️ [`document_conversion_verification.py`](test_conversion_conversion_verification.py)
+➡️ [`document_conversion_verification.py`](test_conversion_verification.py)
 
 ## Technologies Used
 
