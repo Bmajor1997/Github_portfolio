@@ -1,22 +1,33 @@
 ## Project Overview
 
-DAISY Validation demonstrates an automated approach to verifying accessible document output using Python and Playwright. The project validates that a DAISY output can be generated successfully and supports quality review by checking whether the conversion workflow reaches the expected result.
-
-This project supports quality assurance by creating a repeatable validation process for an accessibility-focused document format.
+DAISY Validation demonstrates an automated approach to verifying accessible document conversion using Python and Playwright. The project performs an end-to-end document conversion workflow, downloads the generated DAISY package, validates the package structure, and compares the converted content against the original source document to verify conversion accuracy.
 
 ## Why I Built This
 
-DAISY is an accessible document format used to support structured reading experiences. Validating DAISY output requires more than confirming that a conversion button was clicked; the workflow must confirm that the output is generated and available for review.
-
-I built this automation to reduce repetitive manual validation and support consistent testing of DAISY conversion behavior.
+DAISY is a structured accessibility format used by individuals who rely on assistive technologies for reading digital content. Verifying a successful conversion requires more than confirming that the conversion completed—it also requires validating the generated package structure and ensuring the converted content accurately represents the source document.
 
 ## Project Objectives
 
-- Validate successful DAISY output generation.
-- Verify that DAISY can be selected as an output format.
-- Confirm the conversion workflow completes.
-- Identify failures during DAISY processing.
-- Create a repeatable workflow for accessible document output testing.
+- Validate end-to-end DAISY document conversion.
+- Verify DAISY package generation.
+- Confirm required DAISY package files are present.
+- Validate downloaded package integrity.
+- Compare converted content against the original document.
+- Detect conversion failures through automated validation.
+
+## How it Works
+
+The automation performs the following workflow:
+
+1. Upload a source PDF document.
+2. Start the document conversion process.
+3. Select DAISY as the target output format.
+4. Complete the conversion workflow.
+5. Download the generated DAISY ZIP package.
+6. Validate the ZIP archive structure.
+7. Verify required DAISY package files exist.
+8. Compare the converted content against the original source document.
+9. Report validation results.
 
 The following example demonstrates the core DAISY output validation logic. After the DAISY ZIP file is downloaded, the automation verifies that the output is a valid ZIP archive, checks for required DAISY package files, confirms files are not empty, and compares source document text against the generated DAISY content.
 
@@ -74,7 +85,7 @@ def validate_daisy_zip(zip_path, source_file):
 
 ## Full Implementation
 
-The complete implementation of this project, including DAISY format selection, conversion workflow validation, output verification, and result reporting, is available in:
+The complete implementation includes automated document upload, DAISY format selection, conversion workflow automation, package validation, ZIP structure verification, content comparison, and Playwright-based end-to-end testing is available in:
 
 ➡️ [`daisy_validation`](test_daisy_validation.py)
 
@@ -83,32 +94,34 @@ The complete implementation of this project, including DAISY format selection, c
 - Python
 - Playwright
 - Pytest
+- Pypdf
+- ZIP File Validation
 - DAISY
 - Git
 - GitHub
 
 ## Skills Demonstrated
 
-- Test Automation
+- End-to-End Test Automation
+- Accessibility Testing
+- Accessible Document Validation
 - Playwright Automation
 - Python Development
-- Accessible Document Validation
-- Workflow Testing
-- Output Format Validation
+- File Validation
+- ZIP Package Inspection
+- Content Comparison
 - Regression Testing
 - Software Quality Assurance
 
 ## Challenges and Lessons Learned
 
-Developing this project reinforced the importance of validating accessibility-focused output formats beyond simple UI interaction. DAISY validation requires confirming that the workflow progresses correctly, the output format is selectable, and the conversion result is available for review.
-
-This project strengthened my understanding of how automation can support specialized QA validation for accessible document delivery.
+Developing this project reinforced the importance of validating generated output rather than simply confirming successful user interface interactions. The project demonstrated that accessibility-focused document conversion requires verifying package structure, required metadata, downloadable content, and text accuracy to ensure reliable output for assistive technology users.
 
 ## Future Improvements
 
-- Add deeper validation of DAISY output structure.
-- Verify expected DAISY package files.
-- Add reporting for conversion success and failure states.
-- Improve reusable helper functions for output validation.
+- Perform deeper validation of DAISY package metadata.
+- Validate additional DAISY specification requirements.
+- Generate detailed HTML validation reports.
+- Expand reusable validation helpers.
 - Integrate automated execution through GitHub Actions.
 
