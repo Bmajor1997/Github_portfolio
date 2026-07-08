@@ -1,25 +1,37 @@
 
 ## Project Overview
 
-Remediation Checkpoints demonstrates an automated approach to validating accessibility-related remediation results within a document processing workflow. Built with Python and Playwright, this project checks whether documents require remediation, identifies checkpoint results, and supports structured QA review of accessibility processing outcomes.
-
-This project supports quality assurance by helping testers verify remediation behavior consistently and identify warnings or failures that may require follow-up review.
+Remediation Checkpoints demonstrates an automated approach to validating accessibility remediation results throughout an end-to-end document conversion workflow using Python and Playwright. The project verifies document processing, evaluates accessibility-related checkpoints, compares source and converted content, and validates structural accessibility features including headings, tables, links, OCR quality, AI-generated image descriptions, and document integrity.
 
 ## Why I Built This
 
-Accessibility remediation workflows can involve multiple checkpoints, processing states, warnings, and validation results. Manually reviewing these outcomes can be repetitive and difficult to track consistently across documents.
-
-I built this automation to create a repeatable process for validating remediation checkpoints, improving visibility into accessibility-related processing results, and supporting more structured QA review.
+Accessibility remediation involves much more than determining whether a document successfully converts. Quality assurance also requires validating document structure, accessibility metadata, OCR quality, content preservation, page counts, and other remediation checkpoints. I developed this project to automate these validations and provide a repeatable framework for reviewing remediation accuracy across multiple document types.
 
 ## Project Objectives
 
-- Validate remediation checkpoint behavior.
-- Identify warnings, failures, and processing issues.
-- Support accessibility-related document review.
-- Improve consistency during remediation validation.
-- Reduce repetitive manual checkpoint review.
+- Validate end-to-end accessibility remediation workflows.
+- Verify document processing and conversion results.
+- Compare source and converted document content.
+- Evaluate accessibility-related remediation checkpoints.
+- Detect structural accessibility issues.
+- Validate AI-generated image descriptions.
+- Verify page counts, tables, headings, lists, and hyperlinks.
+- Support repeatable accessibility regression testing.
 
-The following example demonstrates the checkpoint-based validation approach used to evaluate remediation accuracy after document conversion. Each checkpoint records a specific quality signal, including page count, preview behavior, image descriptions, OCR/text quality, structure preservation, table tagging, and link preservation.
+## How it Works 
+
+1. Upload a source document.
+2. Complete the document conversion workflow.
+3. Download the converted document.
+4. Validate page count and preview behavior.
+5. Compare source and converted text quality.
+6. Verify AI-generated image descriptions.
+7. Compare headings, lists, and tables.
+8. Validate PDF table tagging.
+9. Verify hyperlink preservation.
+10. Report remediation checkpoint results.
+
+The following example demonstrates the checkpoint-based validation workflow used after document conversion. Each checkpoint records accessibility-related quality indicators, including page count verification, preview validation, AI-generated image descriptions, OCR quality, heading preservation, table validation, hyperlink preservation, and overall remediation accuracy.
 
 ```python
 result = {
@@ -61,7 +73,7 @@ result["headings"] = compare_documents(
 
 ## Full Implementation
 
-The complete implementation of this project, including remediation detection, checkpoint validation, warning identification, and workflow result reporting, is available in:
+The complete implementation includes document conversion automation, remediation checkpoint validation, accessibility comparison, OCR quality evaluation, document structure analysis, hyperlink validation, table tagging verification, and detailed workflow reporting. is available in:
 
 ➡️ [`remediation_checkpoints`](test_remediation_accuracy_checkpoints.py)
 
@@ -69,31 +81,42 @@ The complete implementation of this project, including remediation detection, ch
 
 - Python
 - Playwright
-- Pytest
+- pytest
+- BeautifulSoup
+- pypdf
+- pandas
+- openpyxl
+- python-docx
+- python-pptx
+- odfpy
 - Git
 - GitHub
-- BeautifulSoup
-- re
-- 
+
 ## Skills Demonstrated
 
-- Test Automation
+- End-to-End Test Automation
 - Accessibility Validation
+- Document Conversion Testing
 - Playwright Automation
 - Python Development
-- Workflow Validation
-- Error and Warning Detection
-- QA Documentation
+- OCR Quality Analysis
+- Document Structure Validation
+- PDF Accessibility Testing
+- Content Comparison
+- Hyperlink Validation
+- Table Tagging Validation
+- Multi-Format Document Parsing
 - Software Quality Assurance
 
 ## Challenges and Lessons Learned
 
-Developing this project reinforced the importance of distinguishing between true test failures, accessibility warnings, and informational remediation results. It also strengthened my understanding of how automation can support QA review by surfacing important findings without replacing human judgment.
+Developing this project reinforced the importance of validating accessibility remediation beyond simple conversion success. Effective remediation testing requires comparing document structure, page counts, text quality, accessibility metadata, tables, links, and AI-generated descriptions to ensure converted documents preserve both content and accessibility features.
 
 ## Future Improvements
 
-- Improve structured reporting for checkpoint results.
-- Add classification for warnings, failures, and informational messages.
-- Expand support across additional document types.
-- Add screenshots or trace files for failed checkpoints.
+- Expand validation across additional document formats.
+- Generate HTML or JSON remediation reports.
+- Add configurable validation thresholds.
+- Improve comparison reporting for structural differences.
+- Support batch remediation validation.
 - Integrate automated execution through GitHub Actions.
