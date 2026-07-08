@@ -1,8 +1,6 @@
 ## Project Overview
 
-Semantic Accessibility Validation demonstrates an automated approach to evaluating the semantic structure of a web application using Python and Playwright. The project focuses on identifying accessibility-related markup issues that may impact how assistive technologies interpret page content.
-
-This project supports accessibility testing by checking whether key page elements use meaningful HTML structure, accessible roles, labels, and relationships that contribute to a more usable experience for assistive technology users.
+Semantic Accessibility Validation demonstrates an automated approach to validating the accessibility structure of a web application using Python, Playwright, and axe-core. It combines automated accessibility scanning with custom validation logic to inspect headings, landmarks, graphic labels, and user-facing error messages that influence how assistive technologies interpret page content.
 
 ## Why I Built This
 
