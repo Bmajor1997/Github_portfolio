@@ -1,26 +1,33 @@
 ## Project Overview
 
-Credit Count Verification demonstrates an automated approach to extracting and validating the current credit balance displayed within a web application using Python and Playwright. The project reads the visible page content, identifies credit-related text patterns, and extracts the credit value for validation.
-
-This project supports quality assurance by creating a repeatable way to verify that credit information is visible, readable, and available for future business rule validation.
+Credit Count Verification demonstrates an automated approach to locating and extracting the current credit balance displayed within a web application using Python and Playwright. The automation identifies credit-related text, extracts the numeric value using pattern matching, and verifies that a valid credit count is available for further testing.
 
 ## Why I Built This
 
-Credit usage is an important business rule because users need accurate feedback about how many credits are available and how many are consumed during processing. Manual verification can be repetitive and prone to missed differences.
-
-I built this automation to validate credit behavior consistently and support regression testing for credit-related workflows.
+Applications that rely on credit-based systems should clearly display available credits to users. Manually locating and confirming this information during testing can become repetitive, particularly during regression testing. I developed this project to automate credit count extraction and create a reusable foundation for future business rule validation.
 
 ## Project Objectives
 
-- Capture credit count before processing.
-- Perform a document processing workflow.
-- Capture credit count after processing.
-- Compare expected and actual credit changes.
-- Identify possible credit tracking issues.
+- Retrieve the displayed credit count from the application.
+- Extract credit values using flexible pattern matching.
+- Support reliable credit detection across different page layouts.
+- Verify that a valid credit value is available.
+- Create a reusable foundation for future credit workflow validation.
+
+## How it Works
+
+The automation performs the following workflow:
+
+1. Open the target web application.
+2. Navigate to the page containing the credit balance.
+3. Attempt to locate the credit value using a known selector, when available.
+4. Fall back to scanning the visible page content.
+5. Extract the numeric credit value using pattern matching.
+6. Verify that a valid credit count was successfully retrieved.
 
 ## Implementation Example
 
-The following example demonstrates the core credit extraction logic used to validate the application's displayed credit balance. The automation searches for credit-related text patterns, extracts the numeric value, and applies fallback matching to improve reliability across different page layouts.
+The following example extracts the application's displayed credit balance using flexible pattern matching while supporting multiple text layouts and formatting styles.
 
 ```python
 def extract_credits_best_effort(text: str) -> int | None:
@@ -46,7 +53,7 @@ def extract_credits_best_effort(text: str) -> int | None:
  ```   
 ## Full Implementation
 
-The complete implementation of this project, including credit balance capture, document processing workflow validation, credit comparison, and result reporting, is available in:
+The complete implementation includes credit value extraction, selector-based lookup, fallback text scanning, regular expression matching, and Playwright automation for retrieving displayed credit information.
 
 ➡️ [`credit_verification`](test_credits_verification.py)
 
@@ -61,22 +68,22 @@ The complete implementation of this project, including credit balance capture, d
 ## Skills Demonstrated
 
 - Test Automation
-- Business Rule Validation
 - Playwright Automation
 - Python Development
-- Workflow Testing
+- Data Extraction
+- Regular Expression (Regex) Pattern Matching
 - Assertion Logic
-- Regression Testing
+- Dynamic Content Validation
 - Software Quality Assurance
 
 ## Challenges and Lessons Learned
 
-Developing this project reinforced the importance of validating business logic in addition to user interface behavior. Credit tracking requires careful comparison of system state before and after a workflow, along with clear reporting when expected and actual values differ.
+Developing this project reinforced the importance of building reliable data extraction logic for dynamic web applications. It also highlighted the value of combining selector-based retrieval with fallback text parsing to improve resilience when page layouts or UI elements change.
 
 ## Future Improvements
 
-- Add support for multiple document types.
-- Improve reporting for expected versus actual credit changes.
-- Add negative testing for insufficient credits.
-- Expand validation across additional credit-based workflows.
+- Capture credit balances before and after document processing.
+- Validate expected versus actual credit consumption.
+- Add negative testing for insufficient credit scenarios.
+- Expand support for additional credit-based workflows.
 - Integrate automated execution through GitHub Actions.
