@@ -1,5 +1,3 @@
-# Document Conversion Verification
-
 ## Project Overview
 
 Document Upload Verification demonstrates an automated approach to validating a document upload workflow using Python and Playwright. The project verifies that a supported document can be selected, uploaded, and processed successfully through the application's upload interface.
