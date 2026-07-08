@@ -22,7 +22,18 @@ I developed this automation to create a repeatable process for validating notifi
 - Ensure notifications remain visible long enough for validation.
 - Create a reusable workflow for dynamic UI validation.
 
----
+## How it Works
+
+1. Load the target application.
+2. Retrieve the supported test file.
+3. Upload the document.
+4. Click Start.
+5. Check for the first processing-related toast.
+6. Wait for the Select Format stage.
+7. Select PDF as the target format.
+8. Click Convert.
+9. Check for the second processing toast.
+10. Print workflow results.
 
 The following example demonstrates the core URL upload workflow, including entering the document URL, starting processing, validating the processing message, selecting the output format, and confirming the document is ready.
 
