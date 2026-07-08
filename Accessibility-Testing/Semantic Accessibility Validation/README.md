@@ -10,21 +10,25 @@ I developed this project to support accessibility testing by automating checks f
 
 ## Project Objectives
 
-- Evaluate semantic HTML structure.
-- Identify accessibility-related markup issues.
-- Validate accessible labels, roles, and element relationships.
-- Support screen reader compatibility through structural testing.
-- Create a repeatable workflow for semantic accessibility validation.
+- Validate page accessibility using axe-core.
+- Verify semantic HTML structure.
+- Inspect heading hierarchy.
+- Validate landmark regions.
+- Verify accessible graphic labels.
+- Review user-facing error messages.
+- Support repeatable accessibility regression testing.
 
 ## How It Works
 
 The automation follows a structured validation workflow:
 
 1. Launch the target web application.
-2. Inspect key page elements and accessibility-related attributes.
-3. Validate semantic structure, roles, labels, and relationships.
-4. Identify elements that may require accessibility review.
-5. Report findings for follow-up validation.
+2. Run axe-core accessibility analysis.
+3. Validate graphic labels and ARIA relationships.
+4. Verify heading hierarchy and document structure.
+5. Inspect required page landmarks.
+6. Review visible error messages for accessibility and clarity.
+7. Report any detected accessibility violations.
 
 ## Implementation Example
 
@@ -80,20 +84,24 @@ The complete implementation of this project, including semantic structure checks
 
 - Python
 - Playwright
+- pytest
+- axe-core
 - HTML
 - ARIA
 - Git
 - GitHub
-
+ 
 ## Skills Demonstrated
 
 - Accessibility Testing
-- Semantic HTML Validation
+- Automated Accessibility Validation
+- Semantic HTML Review
 - Playwright Automation
-- Python Development
-- ARIA Review
-- Test Documentation
-- Software Quality Assurance
+- Python Test Development
+- ARIA Validation
+- Test Automation
+- Quality Assurance
+- Custom Validation Logic
 
 ## Challenges and Lessons Learned
 
@@ -104,7 +112,8 @@ This project strengthened my understanding of how automated validation can suppo
 ## Future Improvements
 
 - Expand validation coverage across additional page templates.
-- Add reporting for detected semantic accessibility issues.
+- Reporting for detected semantic accessibility issues.
 - Integrate WCAG-related checks where appropriate.
 - Improve reusable helper functions for semantic validation.
-- Add GitHub Actions integration for automated execution.
+- GitHub Actions integration for automated execution.
+- Automated accessibility reports for CI/CD pipelines.
