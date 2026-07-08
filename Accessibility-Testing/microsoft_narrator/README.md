@@ -2,34 +2,34 @@
 
 ## Project Overview
 
-Microsoft Narrator Compatibility demonstrates an automated approach to preparing a web application for accessibility testing with Microsoft Narrator, the built-in Windows screen reader. Developed using Python and Playwright, the project automates the setup process required to establish a consistent testing environment for evaluating screen reader interactions and keyboard accessibility.
+Microsoft Narrator Compatibility demonstrates an automated approach to preparing a web application for manual screen reader testing using Microsoft Narrator. Developed with Python and Playwright, the project automates the environment setup by launching Narrator, connecting to an existing Chrome session, and attaching to the target application to provide a consistent starting point for accessibility evaluation.
 
 By reducing repetitive manual setup, the automation allows testers to spend more time validating accessibility behavior while improving the consistency and efficiency of accessibility testing.
 
 ## Why I Built This
 
-Preparing Microsoft Narrator for accessibility testing often requires repetitive setup before meaningful testing can begin. I developed this project to automate that preparation process, creating a repeatable workflow that allows accessibility testing to begin more quickly and consistently.
-
-The project demonstrates how automation can support accessibility testing by reducing manual effort while maintaining a reliable testing environment.
+Preparing Microsoft Narrator for accessibility testing often involves repetitive setup before meaningful testing can begin. I developed this project to automate that preparation process, allowing testers to begin manual screen reader validation more quickly while maintaining a consistent testing environment across test sessions.
 
 ## Project Objectives
 
-- Automate the setup process for Microsoft Narrator.
-- Create a repeatable accessibility testing workflow.
-- Reduce repetitive manual configuration.
-- Improve consistency during screen reader testing.
-- Support efficient accessibility validation.
-
+- Automate Microsoft Narrator startup.
+- Connect Playwright to an existing Chrome debugging session.
+- Attach to the target application automatically.
+- Create a repeatable screen reader testing environment.
+- Reduce repetitive accessibility test setup.
+- 
 ## How It Works
 
 The automation follows a structured workflow:
 
-1. Launch the target web application.
-2. Prepare the testing environment.
-3. Start Microsoft Narrator.
-4. Configure the environment for screen reader testing.
-5. Establish a consistent starting point for accessibility validation.
-6. Complete setup for manual or automated accessibility testing.
+The automation performs the following workflow:
+
+1. Launch Microsoft Narrator.
+2. Connect to an existing Chrome instance using the Chrome DevTools Protocol (CDP).
+3. Locate the target application tab.
+4. Bring the application to the foreground.
+5. Prepare a consistent environment for manual Narrator testing.
+6. Allow the tester to perform screen reader validation using standard Narrator commands.
 
 ## Implementation Example
 
@@ -73,29 +73,29 @@ The complete implementation is available here:
 - Playwright
 - Microsoft Narrator
 - Windows Accessibility Tools
-
+- Chrome DevTools Protocol (CDP)
+  
 ## Skills Demonstrated
 
 - Accessibility Testing
-- Screen Reader Validation
+- Screen Reader Testing Support
 - Playwright Automation
 - Python Development
-- Test Environment Preparation
-- Automation Workflow Design
+- Chrome DevTools Protocol (CDP)
+- Test Environment Automation
+- Windows Accessibility Tools
 - Software Quality Assurance
 
 ## Challenges & Lessons Learned
 
-Developing this project reinforced the importance of creating reliable automation around external accessibility tools. It highlighted the need for consistent timing, repeatable environment preparation, and maintainable automation that supports accessibility testing without introducing unnecessary complexity.
-
-The project also strengthened my understanding of integrating assistive technologies into automated QA workflows.
+Developing this project reinforced the importance of automating interactions with external accessibility tools while maintaining a reliable testing environment. It also highlighted the value of Chrome DevTools Protocol (CDP) for attaching Playwright to existing browser sessions, allowing accessibility testing to begin without launching a new browser instance.
 
 ## Future Improvements
 
 Future enhancements may include:
 
-- Additional Narrator validation scenarios.
-- Expanded compatibility testing.
-- Improved logging and reporting.
-- Integration with GitHub Actions.
-- Support for additional accessibility workflows.
+- Add automated logging of test sessions.
+- Expand support for additional screen reader workflows.
+- Support automated browser startup and configuration.
+- Improve diagnostic reporting.
+- Explore integration with additional Windows accessibility tools.
