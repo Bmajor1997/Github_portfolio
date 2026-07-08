@@ -2,23 +2,20 @@
 
 ## Project Overview
 
-Keyboard Navigation Validation demonstrates an automated approach to evaluating keyboard accessibility within a web application using Python and Playwright. The project validates keyboard-only navigation by verifying focus movement, detecting potential keyboard traps, and confirming that interactive elements remain accessible without requiring a mouse.
-
-By automating these accessibility checks, the project reduces repetitive manual validation while providing a consistent and repeatable method for evaluating keyboard navigation behavior during software testing.
+Keyboard Navigation Validation demonstrates an automated approach to evaluating keyboard accessibility within a web application using Python and Playwright. The project validates keyboard-only navigation by verifying focus movement, reverse navigation, dropdown keyboard interaction, and detecting potential keyboard traps throughout an end-to-end user workflow.
 
 ## Why I Built This
 
-Keyboard accessibility is a fundamental component of accessible web applications, but manually validating navigation across multiple pages can be repetitive and time-consuming.
-
-I developed this automation to streamline keyboard accessibility testing by creating a repeatable process for validating focus behavior, keyboard navigation, and potential accessibility issues during quality assurance testing.
+Although manual keyboard testing remains essential, automating common navigation patterns helps identify accessibility issues more efficiently and provides repeatable regression testing.
 
 ## Project Objectives
 
 - Validate keyboard-only navigation throughout a web application.
-- Verify predictable focus movement between interactive elements.
+- Verify predictable focus movement using Tab and Shift+Tab.
 - Detect potential keyboard traps.
-- Reduce repetitive manual accessibility testing.
-- Create a reusable automation workflow for keyboard accessibility validation.
+- Validate keyboard interaction within dropdown menus.
+- Support accessibility regression testing through repeatable automation.
+- Reduce repetitive manual keyboard accessibility testing.
 
 ## How It Works
 
@@ -26,11 +23,12 @@ The automation follows a structured workflow:
 
 1. Launch the target web application.
 2. Prepare the testing environment.
-3. Navigate using keyboard input.
-4. Track focus movement between interactive elements.
-5. Validate expected keyboard behavior.
-6. Detect potential keyboard accessibility issues.
-7. Report test results.
+3. Validate forward keyboard navigation using Tab.
+4. Validate reverse navigation using Shift+Tab.
+5. Detect potential keyboard traps.
+6. Verify keyboard interaction within dropdown controls.
+7. Complete an end-to-end document conversion workflow using only keyboard interactions.
+8. Report detected accessibility issues.
 
 ## Implementation Example
 
@@ -72,23 +70,23 @@ The complete implementation is available here:
 
 - Python
 - Playwright
+- Pytest
 - Git
 - GitHub
 
 ## Skills Demonstrated
 
-- Test Automation
 - Accessibility Testing
+- Keyboard Accessibility Validation
+- Focus Management
 - Playwright Automation
-- Python Development
-- Focus Management Validation
-- Automation Debugging
+- Python Test Development
+- End-to-End Test Automation
+- Custom Validation Logic
 - Software Quality Assurance
 
 ## Challenges and lessons learned 
-Developing this automation reinforced the importance of synchronization, reliable focus detection, and building validation logic that behaves consistently 
-across different execution environments. Debugging differences between local and remote execution also highlighted the need for maintainable automation and clear 
-diagnostic logging.
+Developing this automation reinforced the importance of synchronization, reliable focus detection, and accurately tracking keyboard navigation across dynamic web interfaces. Debugging differences between local and remote execution also highlighted the importance of maintainable automation, reusable helper functions, and clear diagnostic logging.
 
 ## Future Improvements
 - HTML reporting
@@ -96,3 +94,4 @@ diagnostic logging.
 - Expanded keyboard interaction coverage
 - Improved logging
 - Reusable accessibility utilities
+- Expand validation to additional keyboard interactions such as Escape, Enter, and Space key behavior.
