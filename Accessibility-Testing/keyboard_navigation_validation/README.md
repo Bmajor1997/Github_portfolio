@@ -1,5 +1,3 @@
-# Keyboard Navigation Validation
-
 ## Project Overview
 
 Keyboard Navigation Validation demonstrates an automated approach to evaluating keyboard accessibility within a web application using Python and Playwright. The project validates keyboard-only navigation by verifying focus movement, reverse navigation, dropdown keyboard interaction, and detecting potential keyboard traps throughout an end-to-end user workflow.
