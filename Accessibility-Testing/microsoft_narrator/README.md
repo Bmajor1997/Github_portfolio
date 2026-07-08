@@ -1,5 +1,3 @@
-# Microsoft Narrator Compatibility
-
 ## Project Overview
 
 Microsoft Narrator Compatibility demonstrates an automated approach to preparing a web application for manual screen reader testing using Microsoft Narrator. Developed with Python and Playwright, the project automates the environment setup by launching Narrator, connecting to an existing Chrome session, and attaching to the target application to provide a consistent starting point for accessibility evaluation.
