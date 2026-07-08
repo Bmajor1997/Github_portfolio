@@ -1,5 +1,3 @@
-# Toast Notification Validation
-
 ## Project Overview
 
 Toast Notification Validation demonstrates an automated approach to validating application workflow feedback through transient toast notifications using Python and Playwright. Rather than validating notifications in isolation, the project uses toast messages as checkpoints to verify that key stages of a document conversion workflow progress successfully.
